@@ -9,6 +9,16 @@
     <script nomodule src="/build/stencil-starter-project-name.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <h2>bool attribute</h2>
+    ✅<my-component>OFF</my-component>
+    ✅<my-component on>ON</my-component>
+
+    <h2>string bool attribute (non-standard)</h2>
+    <!--
+      Stencil parses these to proper booleans, but "true"/"false" are not valid per https://developer.mozilla.org/en-US/docs/Glossary/Boolean/HTML#:~:text=Note%3A%20The%20strings%20%22true%22%20and%20%22false%22%20are%20invalid%20values.%20To%20set%20the%20attribute%20to%20false%2C%20the%20attribute%20should%20not%20be%20present%20in%20the%20element%20tag.%20Though%20modern%20browsers%20treat%20any%20string%20value%20as%20true%2C%20you%20should%20not%20rely%20on%20that%20behavior.
+      which leads to either user confusion by the mixed styling state or forces developers to explicitly style with [<boolean-attr>=value]
+    -->
+    ❌<my-component on='false'>OFF</my-component>
+    ✅<my-component on='true'>ON</my-component>
   </body>
 </html>
